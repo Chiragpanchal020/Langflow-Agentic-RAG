@@ -14,7 +14,7 @@ payload = {
 # Request headers
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer AstraCS:FvZyCTDTjmvArGdjtJleZTYq:8e98ccaedf8383ac1a8fbc88d60dbe68b81190c42ec4e5075c19187dbbc44bc8"  # Authentication key from environment variable'}
+    "Authorization": "Bearer "  # Authentication key from environment variable'}
 }
 
 try:
