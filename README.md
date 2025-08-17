@@ -4,7 +4,7 @@ A smart, interactive chat assistant that helps users find information about prod
 
 ## 📋 Overview
 
-This project implements a Streamlit-based chat interface that connects to a LangFlow API to provide intelligent responses about products and orders. The assistant uses RAG to retrieve relevant information from a knowledge base of products and orders.
+This project implements a Streamlit-based chat interface that connects to a LangFlow API to provide intelligent responses about products, orders, and frequently asked questions (FAQs). The assistant uses RAG to retrieve relevant information from a knowledge base consisting of product and order data, as well as a PDF document for FAQs.
 
 ## ✨ Features
 
@@ -18,11 +18,24 @@ This project implements a Streamlit-based chat interface that connects to a Lang
 
 - **Frontend**: Streamlit
 - **Backend**: LangFlow API
-- **Data**: CSV files for products and orders
+- **Data**: CSV files for products and orders, PDF for FAQs
 - **Authentication**: Environment variables for API tokens
 
 
-## 🚀 Getting Started
+## 📐 Architecture
+
+```mermaid
+graph TD
+    A[Streamlit UI] --> B{LangFlow API};
+    B --> C[Agent];
+    C -->|Order Query| D[Order Lookup Tool];
+    C -->|Product Query| E[Product Lookup Tool];
+    C -->|FAQ Query| F[FAQ RAG tool];
+    D --> G[orders.csv];
+    E --> H[products.csv];
+    F --> I[FAQ.pdf];
+```
+##  Getting Started
 
 ### Prerequisites
 
@@ -59,6 +72,7 @@ streamlit run streamlit_ui.py
 The assistant uses two main data sources:
 - `products.csv`: Contains product information (ID, name, description)
 - `orders.csv`: Contains order information (order number, customer details, status)
+- `FAQ.pdf`: Contains answers to frequently asked questions.
 
 ## 🔄 API Integration
 
